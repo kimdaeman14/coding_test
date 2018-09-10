@@ -1,0 +1,3 @@
+
+var nameArr = ["affairs","affects","affixed","afflict","affront","afghans","brewed","brewer","briber","bricks","brides","bridle","briers","crowed","crowns","cruder","crumbs","crummy"
+"crusts","crutch","crying","despair","despite","despond","dessert","destiny","details","detects","emerald","emerges","eminent","emitted","emotion","empathy","empires"]
