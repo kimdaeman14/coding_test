@@ -38,6 +38,8 @@ class APIViewController: UIViewController {
                     print(value, "일단 성공")
                     do{
                         print("1")
+//                       let apiData = try JSONDecoder().decode([SearchData].self, from: value)
+//                        print(apiData)
 //                        let apiData = try JSONDecoder().decode(Cart.self, from: value)
 //                        print(apiData)
                         print("2")
@@ -47,7 +49,7 @@ class APIViewController: UIViewController {
                 case .failure(let error):
                     print(error, "failure")
                 }
-        }
+        }.resume()
     }
 
    
