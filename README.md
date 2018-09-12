@@ -42,4 +42,9 @@ JSONSerialization을 활용한 pasing 구현
 - 기존 일반적인 json파일처럼 key값이 없고, model.swift를 따로 만들 필요가 없을 것으로 판단함.
 ```
 
+```
+commit 1d4d83d4255e42d73b9f5e8fe8b79577fce9be1a
+네트워킹 구조변경 Alamofire->URLSession
+- 굳이 엄청나게 크면서 내가 전부다 알지못하는 라이브러리를 쓰는 대신 URLSession로 구조변경함. 
+```
 
