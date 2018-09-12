@@ -10,6 +10,10 @@ import UIKit
 
 class TestApiVC: UIViewController {
 
+    @IBOutlet weak var tableView:UITableView!
+
+    var searchArr:[String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,10 +31,12 @@ class TestApiVC: UIViewController {
             guard let data = data else { return print("data가 없습니다.") }
             do {
                 let receivedTodo = try JSONSerialization.jsonObject(with: data, options: [])
-                let first = receivedTodo as! NSArray
-                print(first[0])
-                print(first[1])
-                print(first[2])
+                let receiveData = receivedTodo as! NSArray
+                self.searchArr = receiveData[1] as! [String]
+                print(self.searchArr)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } catch  {
                 print("parsing response가 잘못되었습니다.")
                 return
@@ -40,4 +46,21 @@ class TestApiVC: UIViewController {
     }
 
 
+}
+
+extension TestApiVC : UITableViewDataSource {
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return searchArr.count
+    }
+    
+   
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = searchArr[indexPath.row]
+        return cell
+    }
+    
+    
 }
