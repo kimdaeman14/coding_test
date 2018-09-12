@@ -12,15 +12,41 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
-    let nameArr = ["affairs","affects","affixed","afflict","affront","afghans","brewed","brewer","briber","bricks","brides","bridle","briers","crowed","crowns","cruder","crumbs","crummy","crusts","crutch","crying","despair","despite","despond","dessert","destiny","details","detects","emerald","emerges","eminent","emitted","emotion","empathy","empires"]
 
+    var searchArr:[String] = []
     var searchCountry = [String]()
     var searching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        makePostCall()
     }
+    
+    func makePostCall() {
+        let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=purple"
+        guard let todosURL = URL(string: todosEndpoint) else {
+            return print("검색값이 잘못되었습니다.")
+        }
+        let todosUrlRequest = URLRequest(url: todosURL)
+        let task = URLSession.shared.dataTask(with: todosUrlRequest) { (data, response, error) in
+            guard error == nil else { return print(error!) }
+            guard let data = data else { return print("data가 없습니다.") }
+            do {
+                let receivedTodo = try JSONSerialization.jsonObject(with: data, options: [])
+                let receiveData = receivedTodo as! NSArray
+                self.searchArr = receiveData[1] as! [String]
+                print(self.searchArr)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            } catch  {
+                print("parsing response가 잘못되었습니다.")
+                return
+            }
+        }
+        task.resume()
+    }
+
 
 }
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -30,7 +56,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if searching{
             return searchCountry.count
         }else{
-            return nameArr.count
+            return searchArr.count
         }
     }
     
@@ -41,7 +67,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if searching{
             cell?.textLabel?.text = searchCountry[indexPath.row]
         }else{
-            cell?.textLabel?.text = nameArr[indexPath.row]
+            cell?.textLabel?.text = searchArr[indexPath.row]
         }
         return cell!
     }
@@ -49,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchCountry = nameArr.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        searchCountry = searchArr.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
     }
