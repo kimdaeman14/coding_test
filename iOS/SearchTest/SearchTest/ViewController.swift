@@ -16,14 +16,14 @@ class ViewController: UIViewController {
     var searchArr:[String] = []
     var searchCountry = [String]()
     var searching = false
+    var searchFieldText = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        makePostCall()
     }
     
     func makePostCall() {
-        let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=purple"
+        let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=\(searchFieldText)&limit=10&namespace=0&format=json"
         guard let todosURL = URL(string: todosEndpoint) else {
             return print("검색값이 잘못되었습니다.")
         }
@@ -75,6 +75,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchFieldText = searchText
+        makePostCall()
         searchCountry = searchArr.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         searching = true
         tableView.reloadData()
