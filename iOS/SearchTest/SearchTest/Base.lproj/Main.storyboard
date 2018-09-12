@@ -79,10 +79,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Test ApiVC-->
         <scene sceneID="Rp5-kG-iEJ">
             <objects>
-                <viewController id="A1f-HW-BmR" customClass="APIViewController" customModule="SearchTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="A1f-HW-BmR" customClass="TestApiVC" customModule="SearchTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vCX-Af-rh2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,6 +93,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oCu-2O-8wd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="156" y="832"/>
+        </scene>
+        <!--Test Color ChangeVC-->
+        <scene sceneID="AVW-3D-351">
+            <objects>
+                <viewController id="9Lc-Ay-vBQ" customClass="TestColorChangeVC" customModule="SearchTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2pC-kW-Dwp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글자색, 바꾸기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3M-Tr-K9s">
+                                <rect key="frame" x="103" y="175" width="169" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Aou-Fu-fjR"/>
+                    </view>
+                    <connections>
+                        <outlet property="Label" destination="p3M-Tr-K9s" id="UbZ-Rp-U8C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6dn-S7-mdo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="811"/>
         </scene>
     </scenes>
 </document>

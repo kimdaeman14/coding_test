@@ -8,5 +8,6 @@ target 'SearchTest' do
   # Pods for SearchTest
 
   pod 'Alamofire', '~> 4.7'
+  pod 'RealmSwift'
 
 end

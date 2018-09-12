@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 
-class APIViewController: UIViewController {
+class TestApiVC: UIViewController {
 
     
     override func viewDidLoad() {
@@ -38,7 +38,15 @@ class APIViewController: UIViewController {
                     print(value, "일단 성공")
                     do{
                         print("1")
-//                       let apiData = try JSONDecoder().decode([SearchData].self, from: value)
+                        
+                        let apiData = try JSONSerialization.jsonObject(with: value, options: [])
+                        print(apiData)
+                        let first = apiData as! NSArray
+                        print(first[0])
+                        print(first[1])
+                        print(first[2])
+                        
+//                       let apiData = try JSONDecoder().decode([Search].self, from: value)
 //                        print(apiData)
 //                        let apiData = try JSONDecoder().decode(Cart.self, from: value)
 //                        print(apiData)
