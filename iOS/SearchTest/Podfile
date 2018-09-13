@@ -9,5 +9,7 @@ target 'SearchTest' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'RealmSwift'
+  pod 'Firebase/Core'
+
 
 end

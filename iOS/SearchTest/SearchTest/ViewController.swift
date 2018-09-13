@@ -82,10 +82,11 @@ extension ViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searching = false
-        searchBar.text = ""
-        tableView.reloadData()
-    }
+    @available(iOS 2.0, *)
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+    print("searchBarSearchButtonClicked")
+    searchBar.text = ""
+    tableView.reloadData()
 }
 
+}
