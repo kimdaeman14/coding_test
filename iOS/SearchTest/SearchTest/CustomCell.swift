@@ -8,10 +8,22 @@
 
 import UIKit
 
+protocol HistoryDBdeleteDelegate: class { //프로토콜 aa는 func b()를 꼭 구현해야한다.
+    func historyDBDelete(string: String)
+}
+
 class CustomCell: UITableViewCell {
 
     static let reusableIdentifier = "CustomCell"
 
+    weak var delegate:HistoryDBdeleteDelegate?
+
+    
+    @IBOutlet weak var historyLabel: UILabel!
+    
+    @IBAction func DBDeleteButton(_ sender: Any) {
+        delegate?.historyDBDelete(string: historyLabel.text!)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

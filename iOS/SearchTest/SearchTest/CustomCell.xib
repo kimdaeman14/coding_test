@@ -40,6 +40,9 @@
                             <constraint firstAttribute="width" constant="40" id="nTm-oN-Zdz"/>
                         </constraints>
                         <state key="normal" title="버튼" image="icon33"/>
+                        <connections>
+                            <action selector="DBDeleteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gfh-M1-rzc"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -53,6 +56,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="historyLabel" destination="zAh-D4-EfQ" id="X7i-Bl-z0z"/>
+            </connections>
             <point key="canvasLocation" x="72" y="76.5"/>
         </tableViewCell>
     </objects>
