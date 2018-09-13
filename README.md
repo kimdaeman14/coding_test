@@ -60,6 +60,7 @@ firebase reamtimeDB import
 ```
 commit bb904f6a12313281db35f4696c6bbc35c87d49af
 customcell 생성
+- 문제점 기존 검색 cell과 customcell을 어떤 기준으로 나눠서 다시 뿌려줄 것인지 
 ```
 
 ```
