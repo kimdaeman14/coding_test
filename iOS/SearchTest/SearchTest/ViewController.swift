@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+
 
 class ViewController: UIViewController {
 
+    var ref: DatabaseReference!
+    var history: [String] = []
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
@@ -20,6 +26,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        ref = Database.database().reference() //데이터베이스에 최상위 노드를 가리키는 작업
+        
+        ref.observe(.childAdded) { (DataSnapshot) in
+            guard let value = DataSnapshot.value as? String else {return}
+            print("item added")
+            print("\(value)값이 등록되었습니다.")
+            self.history.append(value)
+            print(self.history)
+        }
+        
+        
     }
     
     func makePostCall() {
@@ -62,14 +81,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+   
+        let cell = UITableViewCell()
+//        switch searching {
+//        case false:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier)
+//            return cell!
+//        case true:
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
+//            if searching{
+//                cell?.textLabel?.text = searchCountry[indexPath.row]
+//            }else{
+//                cell?.textLabel?.text = searchArr[indexPath.row]
+//            }
+//            return cell!
+//        default:
+//            return cell
+//        }
         
-        if searching{
-            cell?.textLabel?.text = searchCountry[indexPath.row]
-        }else{
-            cell?.textLabel?.text = searchArr[indexPath.row]
-        }
-        return cell!
+        return cell
+       
     }
 }
 
@@ -85,6 +116,8 @@ extension ViewController: UISearchBarDelegate {
     @available(iOS 2.0, *)
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
     print("searchBarSearchButtonClicked")
+    let itemsRef = ref.child((searchBar.text?.lowercased())!) //부모의 아들을 만들어서 선언하고
+    itemsRef.setValue(searchBar.text) //셋 하면 값을 넣어주는 작업
     searchBar.text = ""
     tableView.reloadData()
 }

@@ -11,6 +11,8 @@
 		A7D2910E21481DE000766F0F /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2910D21481DE000766F0F /* SearchData.swift */; };
 		A7D29110214839CC00766F0F /* TestColorChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */; };
 		A7D79DFF214A000600073999 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7D79DFE214A000600073999 /* GoogleService-Info.plist */; };
+		A7D79E28214A12F500073999 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D79E26214A12F500073999 /* CustomCell.swift */; };
+		A7D79E29214A12F500073999 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D79E27214A12F500073999 /* CustomCell.xib */; };
 		A7F4554D2146FDE1009B5548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4554C2146FDE1009B5548 /* AppDelegate.swift */; };
 		A7F4554F2146FDE1009B5548 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4554E2146FDE1009B5548 /* ViewController.swift */; };
 		A7F455522146FDE1009B5548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F455502146FDE1009B5548 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 		A7D2910D21481DE000766F0F /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestColorChangeVC.swift; sourceTree = "<group>"; };
 		A7D79DFE214A000600073999 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A7D79E26214A12F500073999 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		A7D79E27214A12F500073999 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		A7F455492146FDE1009B5548 /* SearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F4554C2146FDE1009B5548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7F4554E2146FDE1009B5548 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				A7D79DFE214A000600073999 /* GoogleService-Info.plist */,
 				A7D2910A21480F3400766F0F /* TestApiVC.swift */,
 				A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */,
+				A7D79E26214A12F500073999 /* CustomCell.swift */,
+				A7D79E27214A12F500073999 /* CustomCell.xib */,
 			);
 			path = SearchTest;
 			sourceTree = "<group>";
@@ -168,6 +174,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7D79E29214A12F500073999 /* CustomCell.xib in Resources */,
 				A7F455572146FDE3009B5548 /* LaunchScreen.storyboard in Resources */,
 				A7D79DFF214A000600073999 /* GoogleService-Info.plist in Resources */,
 				A7F455542146FDE3009B5548 /* Assets.xcassets in Resources */,
@@ -189,6 +196,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -197,6 +205,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,6 +242,7 @@
 				A7D29110214839CC00766F0F /* TestColorChangeVC.swift in Sources */,
 				A7F4554D2146FDE1009B5548 /* AppDelegate.swift in Sources */,
 				A7D2910B21480F3400766F0F /* TestApiVC.swift in Sources */,
+				A7D79E28214A12F500073999 /* CustomCell.swift in Sources */,
 				A7D2910E21481DE000766F0F /* SearchData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
