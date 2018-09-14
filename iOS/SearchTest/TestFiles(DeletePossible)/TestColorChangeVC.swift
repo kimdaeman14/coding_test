@@ -16,7 +16,7 @@ class TestColorChangeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-           tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomCell.reusableIdentifier)
+           tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: DatabaseCustomCell.reusableIdentifier)
         
     }
 
@@ -40,7 +40,7 @@ extension TestColorChangeVC : UITableViewDataSource {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 //        cell.textLabel?.text = "1"
 //        return cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DatabaseCustomCell.reusableIdentifier, for: indexPath) as! DatabaseCustomCell
         
         return cell
     }

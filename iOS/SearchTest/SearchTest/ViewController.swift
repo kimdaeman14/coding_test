@@ -26,7 +26,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomCell.reusableIdentifier)
+        tableView.register(UINib(nibName: "DatabaseCustomCell", bundle: nil), forCellReuseIdentifier: DatabaseCustomCell.reusableIdentifier)
+        tableView.register(UINib(nibName: "APICustomCell", bundle: nil), forCellReuseIdentifier: APICustomCell.reusableIdentifier)
+
+        
         ref = Database.database().reference()
         ref.observe(.childAdded) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
@@ -103,22 +106,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+
         switch searching {
         case true:
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "cell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: APICustomCell.reusableIdentifier, for: indexPath) as! APICustomCell
             if searching{
-                cell2?.textLabel?.text = searchCountry[indexPath.row]
+                cell.ApiLabel.text = searchCountry[indexPath.row]
             }else{
-                cell2?.textLabel?.text = searchArr[indexPath.row]
+                cell.ApiLabel.text = searchArr[indexPath.row]
             }
-            return cell2!
+            return cell
         case false:
-            let cell3 = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
-            cell3.delegate = self
-            cell3.historyLabel.text = history[indexPath.row]
-            return cell3
+            let cell = tableView.dequeueReusableCell(withIdentifier: DatabaseCustomCell.reusableIdentifier, for: indexPath) as! DatabaseCustomCell
+            cell.delegate = self
+            cell.historyLabel.text = history[indexPath.row]
+            return cell
         }
     }
+ 
+  
 }
 
 extension ViewController: UISearchBarDelegate {

@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7445CAE214C49E30074CD02 /* APICustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7445CAC214C49E30074CD02 /* APICustomCell.swift */; };
+		A7445CAF214C49E30074CD02 /* APICustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7445CAD214C49E30074CD02 /* APICustomCell.xib */; };
 		A7D2910B21480F3400766F0F /* TestApiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2910A21480F3400766F0F /* TestApiVC.swift */; };
 		A7D2910E21481DE000766F0F /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2910D21481DE000766F0F /* SearchData.swift */; };
 		A7D29110214839CC00766F0F /* TestColorChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */; };
 		A7D79DFF214A000600073999 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7D79DFE214A000600073999 /* GoogleService-Info.plist */; };
-		A7D79E28214A12F500073999 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D79E26214A12F500073999 /* CustomCell.swift */; };
-		A7D79E29214A12F500073999 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D79E27214A12F500073999 /* CustomCell.xib */; };
+		A7D79E28214A12F500073999 /* DatabaseCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D79E26214A12F500073999 /* DatabaseCustomCell.swift */; };
+		A7D79E29214A12F500073999 /* DatabaseCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D79E27214A12F500073999 /* DatabaseCustomCell.xib */; };
 		A7F4554D2146FDE1009B5548 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4554C2146FDE1009B5548 /* AppDelegate.swift */; };
 		A7F4554F2146FDE1009B5548 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4554E2146FDE1009B5548 /* ViewController.swift */; };
 		A7F455522146FDE1009B5548 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F455502146FDE1009B5548 /* Main.storyboard */; };
@@ -25,12 +27,14 @@
 		0A10C127D2F0DEE358C676B4 /* Pods-SearchTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-SearchTest/Pods-SearchTest.release.xcconfig"; sourceTree = "<group>"; };
 		28CF6D7FB861F309447A2327 /* Pods_SearchTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CA4DAECF698AB4D66353FAC /* Pods-SearchTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SearchTest/Pods-SearchTest.debug.xcconfig"; sourceTree = "<group>"; };
+		A7445CAC214C49E30074CD02 /* APICustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICustomCell.swift; sourceTree = "<group>"; };
+		A7445CAD214C49E30074CD02 /* APICustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = APICustomCell.xib; sourceTree = "<group>"; };
 		A7D2910A21480F3400766F0F /* TestApiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiVC.swift; sourceTree = "<group>"; };
 		A7D2910D21481DE000766F0F /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestColorChangeVC.swift; sourceTree = "<group>"; };
 		A7D79DFE214A000600073999 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A7D79E26214A12F500073999 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		A7D79E27214A12F500073999 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		A7D79E26214A12F500073999 /* DatabaseCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseCustomCell.swift; sourceTree = "<group>"; };
+		A7D79E27214A12F500073999 /* DatabaseCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatabaseCustomCell.xib; sourceTree = "<group>"; };
 		A7F455492146FDE1009B5548 /* SearchTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7F4554C2146FDE1009B5548 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A7F4554E2146FDE1009B5548 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,8 +112,10 @@
 				A7F455552146FDE3009B5548 /* LaunchScreen.storyboard */,
 				A7F455582146FDE3009B5548 /* Info.plist */,
 				A7D79DFE214A000600073999 /* GoogleService-Info.plist */,
-				A7D79E26214A12F500073999 /* CustomCell.swift */,
-				A7D79E27214A12F500073999 /* CustomCell.xib */,
+				A7D79E26214A12F500073999 /* DatabaseCustomCell.swift */,
+				A7D79E27214A12F500073999 /* DatabaseCustomCell.xib */,
+				A7445CAC214C49E30074CD02 /* APICustomCell.swift */,
+				A7445CAD214C49E30074CD02 /* APICustomCell.xib */,
 			);
 			path = SearchTest;
 			sourceTree = "<group>";
@@ -174,8 +180,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D79E29214A12F500073999 /* CustomCell.xib in Resources */,
+				A7D79E29214A12F500073999 /* DatabaseCustomCell.xib in Resources */,
 				A7F455572146FDE3009B5548 /* LaunchScreen.storyboard in Resources */,
+				A7445CAF214C49E30074CD02 /* APICustomCell.xib in Resources */,
 				A7D79DFF214A000600073999 /* GoogleService-Info.plist in Resources */,
 				A7F455542146FDE3009B5548 /* Assets.xcassets in Resources */,
 				A7F455522146FDE1009B5548 /* Main.storyboard in Resources */,
@@ -239,10 +246,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7F4554F2146FDE1009B5548 /* ViewController.swift in Sources */,
+				A7445CAE214C49E30074CD02 /* APICustomCell.swift in Sources */,
 				A7D29110214839CC00766F0F /* TestColorChangeVC.swift in Sources */,
 				A7F4554D2146FDE1009B5548 /* AppDelegate.swift in Sources */,
 				A7D2910B21480F3400766F0F /* TestApiVC.swift in Sources */,
-				A7D79E28214A12F500073999 /* CustomCell.swift in Sources */,
+				A7D79E28214A12F500073999 /* DatabaseCustomCell.swift in Sources */,
 				A7D2910E21481DE000766F0F /* SearchData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
