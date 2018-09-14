@@ -79,13 +79,13 @@ api검색기능, db연동기능 완료
 - tableview cellForRowAt에서 bool인스턴스를 통해 firebasedb custom cell과 기존 wiki api cell을 구분하여 뿌려줄 수 있도록 구현 
 ```
 
-
+```
 개선해야 할 기능
 - wiki api cell 도 커스텀으로 구현 
 - 글자수 입력될때마다 입력된것만 글자색 변경
-~~검색결과 20개만 보여주기~~ 
+- 검색결과 20개만 보여주기(해결)
 - 검색어 최근순으로 보여주기 
 - x버튼 누르면 최근검색어 삭제 잘되나 tableview reload 안되는점 개선
 - searchbar 요구사항 이미지처럼 커스텀으로 바꾸기 
-
+```
 
