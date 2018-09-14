@@ -27,14 +27,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomCell.reusableIdentifier)
-        
         ref = Database.database().reference()
-        
         ref.observe(.childAdded) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
             print("\(value)값이 등록되었습니다.")
             self.history.append(value)
-            print(self.history)
+
+//            print(self.history, "history")
+//            print(self.history)
+            
             self.tableView.reloadData()
         }
         ref.observe(.childRemoved) { (DataSnapshot) in
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     func makePostCall() {
-        let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=\(searchFieldText)&limit=10&namespace=0&format=json"
+        let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=\(searchFieldText)&limit=20&namespace=0&format=json"
         guard let todosURL = URL(string: todosEndpoint) else {
             return print("검색값이 존재하지 않습니다.")
         }
@@ -58,7 +59,6 @@ class ViewController: UIViewController {
                 let receivedTodo = try JSONSerialization.jsonObject(with: data, options: [])
                 let receiveData = receivedTodo as! NSArray
                 self.searchArr = receiveData[1] as! [String]
-//                print(self.searchArr)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -92,8 +92,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if searching{
             return searchCountry.count
         }else{
-//            return searchArr.count
-            return history.count
+            if history.count > 20{
+                return 20
+            }else{
+                return history.count
+            }
         }
         
     }
