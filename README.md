@@ -68,3 +68,9 @@ customcell 생성
 commit fe3058355fd932747e9f481ef0513015a0d4974c (HEAD -> master, origin/master, origin/HEAD)
 firebase data연동 삭제기능추가
 ```
+
+```
+commit d699020cb2755896c8d687c78b384d3ef5a2a788
+api검색기능, db연동기능 완료
+- 문제해결사항 
+```
