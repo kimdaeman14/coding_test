@@ -60,7 +60,8 @@ firebase reamtimeDB import
 ```
 commit bb904f6a12313281db35f4696c6bbc35c87d49af
 customcell 생성
-- 문제점 기존 검색 cell과 customcell을 어떤 기준으로 나눠서 다시 뿌려줄 것인지 
+- 문제점 
+- 기존 검색 cell과 customcell을 어떤 기준으로 나눠서 다시 뿌려줄 것인지 
 ```
 
 
@@ -73,4 +74,18 @@ firebase data연동 삭제기능추가
 commit d699020cb2755896c8d687c78b384d3ef5a2a788
 api검색기능, db연동기능 완료
 - 문제해결사항 
+- searbar내 seartext가 nil이면 앱이 꺼져버리는 상태 개선(searchbardelegate에 bool 인스턴스 이용)
+- searbar내 seartext가 nil이면 placeholder에 "검색어입력안내문구 추가"
+- tableview cellForRowAt에서 bool인스턴스를 통해 firebasedb custom cell과 기존 wiki api cell을 구분하여 뿌려줄 수 있도록 구현 
 ```
+
+```
+개선해야 할 기능
+- wiki api cell 도 커스텀으로 구현 
+- 글자수 입력될때마다 입력된것만 글자색 변경
+- 최근검색어 20개만 보여주기 
+- 검색어 최근순으로 보여주기 
+- x버튼 누르면 최근검색어 삭제 잘되나 tableview reload 안되는점 개선
+- searchbar 요구사항 이미지처럼 커스텀으로 바꾸기 
+```
+
