@@ -69,18 +69,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		A7D2910C21481DBD00766F0F /* Model */ = {
+		A7D2910C21481DBD00766F0F /* TestFiles(DeletePossible) */ = {
 			isa = PBXGroup;
 			children = (
+				A7D2910A21480F3400766F0F /* TestApiVC.swift */,
+				A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */,
 				A7D2910D21481DE000766F0F /* SearchData.swift */,
 			);
-			path = Model;
+			path = "TestFiles(DeletePossible)";
 			sourceTree = "<group>";
 		};
 		A7F455402146FDE1009B5548 = {
 			isa = PBXGroup;
 			children = (
-				A7D2910C21481DBD00766F0F /* Model */,
+				A7D2910C21481DBD00766F0F /* TestFiles(DeletePossible) */,
 				A7F4554B2146FDE1009B5548 /* SearchTest */,
 				A7F4554A2146FDE1009B5548 /* Products */,
 				77ED14D1E950B1EBE8F761A5 /* Pods */,
@@ -106,8 +108,6 @@
 				A7F455552146FDE3009B5548 /* LaunchScreen.storyboard */,
 				A7F455582146FDE3009B5548 /* Info.plist */,
 				A7D79DFE214A000600073999 /* GoogleService-Info.plist */,
-				A7D2910A21480F3400766F0F /* TestApiVC.swift */,
-				A7D2910F214839CC00766F0F /* TestColorChangeVC.swift */,
 				A7D79E26214A12F500073999 /* CustomCell.swift */,
 				A7D79E27214A12F500073999 /* CustomCell.xib */,
 			);

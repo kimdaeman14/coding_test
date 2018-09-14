@@ -17,7 +17,6 @@ class CustomCell: UITableViewCell {
     static let reusableIdentifier = "CustomCell"
 
     weak var delegate:HistoryDBdeleteDelegate?
-
     
     @IBOutlet weak var historyLabel: UILabel!
     

@@ -28,8 +28,7 @@ class ViewController: UIViewController {
         
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: CustomCell.reusableIdentifier)
         
-        
-        ref = Database.database().reference() //데이터베이스에 최상위 노드를 가리키는 작업
+        ref = Database.database().reference()
         
         ref.observe(.childAdded) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
@@ -37,17 +36,13 @@ class ViewController: UIViewController {
             self.history.append(value)
             print(self.history)
             self.tableView.reloadData()
-            
-
         }
-        
         ref.observe(.childRemoved) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
             print("item deleteed")
             print("\(value)값이 삭제되었습니다.")
+            self.tableView.reloadData()
         }
-        
-        
     }
     
     func makePostCall() {
@@ -63,7 +58,7 @@ class ViewController: UIViewController {
                 let receivedTodo = try JSONSerialization.jsonObject(with: data, options: [])
                 let receiveData = receivedTodo as! NSArray
                 self.searchArr = receiveData[1] as! [String]
-                print(self.searchArr)
+//                print(self.searchArr)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -77,86 +72,72 @@ class ViewController: UIViewController {
 
 
 }
+
+extension ViewController: HistoryDBdeleteDelegate {
+    func historyDBDelete(string: String){
+        ref.child(string).removeValue { (error, ref) in
+            if error != nil{
+                print("error \(String(describing: error))")
+            }
+        }
+    }
+    
+}
+
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-//        if searching{
-//            return searchCountry.count
-//        }else{
+        
+        if searching{
+            return searchCountry.count
+        }else{
 //            return searchArr.count
-//        }
-        print(history.count, "count")
-        return history.count
-//        return 10
+            return history.count
+        }
         
     }
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-   
-//        let cell = UITableViewCell()
-//        switch searching {
-//        case false:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier)
-//            return cell!
-//        case true:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-//            if searching{
-//                cell?.textLabel?.text = searchCountry[indexPath.row]
-//            }else{
-//                cell?.textLabel?.text = searchArr[indexPath.row]
-//            }
-//            return cell!
-//        default:
-//            return cell
-//        }
-        
-//        return cell
-        
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
-        cell.delegate = self
-        cell.historyLabel.text = history[indexPath.row]
-        
-//          cell.historyLabel.text = "3333"
-        return cell
-       
-    }
-}
-
-
-extension ViewController: HistoryDBdeleteDelegate {
-    func historyDBDelete(string: String){
-        print("historyDBDelete")
-        
-        ref.child(string).removeValue { (error, ref) in
-            if error != nil{
-                print("error \(String(describing: error))")
+        switch searching {
+        case true:
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "cell")
+            if searching{
+                cell2?.textLabel?.text = searchCountry[indexPath.row]
+            }else{
+                cell2?.textLabel?.text = searchArr[indexPath.row]
             }
-            
+            return cell2!
+        case false:
+            let cell3 = tableView.dequeueReusableCell(withIdentifier: CustomCell.reusableIdentifier, for: indexPath) as! CustomCell
+            cell3.delegate = self
+            cell3.historyLabel.text = history[indexPath.row]
+            return cell3
         }
-        tableView.reloadData()
     }
-
 }
-
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchFieldText = searchText
-        makePostCall()
+        if searchFieldText == ""{
+            searchBar.placeholder = "검색하실 단어를 입력해주세요."
+            searching = false
+        }else{
+            makePostCall()
+            searching = true
+        }
         searchCountry = searchArr.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        searching = true
         tableView.reloadData()
     }
     
     @available(iOS 2.0, *)
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
-    print("searchBarSearchButtonClicked")
-    let itemsRef = ref.child((searchBar.text?.lowercased())!) //부모의 아들을 만들어서 선언하고
-    itemsRef.setValue(searchBar.text) //셋 하면 값을 넣어주는 작업
+    let itemsRef = ref.child((searchBar.text?.lowercased())!)
+    itemsRef.setValue(searchBar.text)
     searchBar.text = ""
+    searching = false
     tableView.reloadData()
 }
 
