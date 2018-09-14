@@ -1,9 +1,3 @@
-![purpleworks](purpleworks.jpg)
-
-# purpleworks
-
-
-https://github.com/purpleworks/coding_test/blob/master/iOS/SearchTest/test.md
 
 ## git log 
 
@@ -48,3 +42,29 @@ commit 1d4d83d4255e42d73b9f5e8fe8b79577fce9be1a
 - 굳이 엄청나게 크면서 내가 전부다 알지못하는 라이브러리를 쓰는 대신 URLSession로 구조변경함. 
 ```
 
+```
+commit 0a74e810c58d6095fd5b617df34b25c119a5c305
+testapi 파일 viewcontroller에 적용구현
+```
+
+```
+commit 750d8607c7171113193eb09ee793a6a476a10872
+api연동 검색기능 구현
+```
+
+```
+commit c2c74f2346488fcbdfd75808fc856cd7d175b1fe
+firebase reamtimeDB import
+```
+
+```
+commit bb904f6a12313281db35f4696c6bbc35c87d49af
+customcell 생성
+- 문제점 기존 검색 cell과 customcell을 어떤 기준으로 나눠서 다시 뿌려줄 것인지 
+```
+
+
+```
+commit fe3058355fd932747e9f481ef0513015a0d4974c (HEAD -> master, origin/master, origin/HEAD)
+firebase data연동 삭제기능추가
+```
