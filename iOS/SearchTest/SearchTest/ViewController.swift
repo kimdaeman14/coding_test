@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
+    
     var searchArr:[String] = []
     var searchCountry = [String]()
     var searching = false
@@ -35,19 +36,16 @@ class ViewController: UIViewController {
             guard let value = DataSnapshot.value as? String else {return}
             print("\(value)값이 등록되었습니다.")
             self.history.append(value)
-
-//            print(self.history, "history")
-//            print(self.history)
-            
             self.tableView.reloadData()
         }
         ref.observe(.childRemoved) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
             print("item deleteed")
             print("\(value)값이 삭제되었습니다.")
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
         }
     }
+   
     
     func makePostCall() {
         let todosEndpoint = "https://en.wikipedia.org/w/api.php?action=opensearch&search=\(searchFieldText)&limit=20&namespace=0&format=json"
@@ -76,6 +74,8 @@ class ViewController: UIViewController {
 
 }
 
+//MARK: - HistoryDBdeleteDelegate
+
 extension ViewController: HistoryDBdeleteDelegate {
     func historyDBDelete(string: String){
         ref.child(string).removeValue { (error, ref) in
@@ -83,9 +83,12 @@ extension ViewController: HistoryDBdeleteDelegate {
                 print("error \(String(describing: error))")
             }
         }
+//        self.tableView.reloadData()
     }
     
 }
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -123,12 +126,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
- 
-  
 }
+
+//MARK: - UISearchBarDelegate
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         searchFieldText = searchText
         if searchFieldText == ""{
             searchBar.placeholder = "검색하실 단어를 입력해주세요."

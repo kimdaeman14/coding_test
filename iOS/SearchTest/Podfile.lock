@@ -58,12 +58,14 @@ PODS:
   - Realm/Headers (3.9.0)
   - RealmSwift (3.9.0):
     - Realm (= 3.9.0)
+  - SearchTextField (1.2.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - Firebase/Core
   - Firebase/Database
   - RealmSwift
+  - SearchTextField (~> 1.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -79,6 +81,7 @@ SPEC REPOS:
     - nanopb
     - Realm
     - RealmSwift
+    - SearchTextField
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
@@ -93,7 +96,8 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Realm: 3d36f208bf3aff8335dc3298742140182bde4edb
   RealmSwift: aa4d11917bfcfaa3ed51f219102a487ecd895447
+  SearchTextField: 261b0febd49194492f29555fff3c5c0019ca84d2
 
-PODFILE CHECKSUM: b8c47a4221a95603939214b834a20cc4fe014418
+PODFILE CHECKSUM: f100aadfa0ee1362fa58d9ca6a2af1288d3c5a2c
 
 COCOAPODS: 1.5.3

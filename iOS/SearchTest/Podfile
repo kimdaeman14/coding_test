@@ -11,6 +11,8 @@ target 'SearchTest' do
   pod 'RealmSwift'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'SearchTextField', '~> 1.2'
+
 
 
 end
