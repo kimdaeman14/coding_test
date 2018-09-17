@@ -84,8 +84,8 @@ api검색기능, db연동기능 완료
 - wiki api cell 도 커스텀으로 구현(해결)
 - 글자수 입력될때마다 입력된것만 글자색 변경
 - 검색결과 20개만 보여주기(해결)
-- 검색어 최근순으로 보여주기 
-- x버튼 누르면 최근검색어 삭제 잘되나 tableview reload 안되는점 개선
+- 검색어 최근순으로 보여주기(해결) 
+- x버튼 누르면 최근검색어 삭제 잘되나 tableview reload 안되는점 개선(해결)
 - searchbar 요구사항 이미지처럼 커스텀으로 바꾸기 
 ```
 
@@ -97,5 +97,16 @@ commit 5fc4c49d3612cfc2f2e8cc0ae885792f48a25013
 ```   
 commit 8178f189652a08e2b3f1c9c8d13370cd6b687b46
 wiki api cell 도 커스텀으로 구현
-```    
+```  
+
+```   
+commit 06b22244e2d1475180fa94bbb11e729a841532f6
+주석 추가
+```  
+
+```   
+commit 8e4713bb29c21691b3e5f74ee7656c1a7bdda923 (HEAD -> master, origin/master, origin/HEAD)
+검색어 최신순보여주기 해결
+```  
+
 
