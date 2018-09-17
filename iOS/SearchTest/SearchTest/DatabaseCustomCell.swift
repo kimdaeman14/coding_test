@@ -9,7 +9,7 @@
 import UIKit
 
 protocol HistoryDBdeleteDelegate: class { //프로토콜 aa는 func b()를 꼭 구현해야한다.
-    func historyDBDelete(string: String)
+    func historyDBDelete(string: String, index:Int)
 }
 
 class DatabaseCustomCell: UITableViewCell {
@@ -21,7 +21,9 @@ class DatabaseCustomCell: UITableViewCell {
     @IBOutlet weak var historyLabel: UILabel!
     
     @IBAction func DBDeleteButton(_ sender: Any) {
-        delegate?.historyDBDelete(string: historyLabel.text!)
+        delegate?.historyDBDelete(string: historyLabel.text!, index: indexPath!)
     }
-    
+
+    var indexPath: Int?
 }
+

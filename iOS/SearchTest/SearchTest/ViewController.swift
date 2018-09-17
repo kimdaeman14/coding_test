@@ -14,11 +14,10 @@ class ViewController: UIViewController {
 
     var ref: DatabaseReference!
     var history: [String] = []
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
 
-    
     var searchArr:[String] = []
     var searchCountry = [String]()
     var searching = false
@@ -26,23 +25,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.register(UINib(nibName: "DatabaseCustomCell", bundle: nil), forCellReuseIdentifier: DatabaseCustomCell.reusableIdentifier)
         tableView.register(UINib(nibName: "APICustomCell", bundle: nil), forCellReuseIdentifier: APICustomCell.reusableIdentifier)
 
-        
         ref = Database.database().reference()
+        
         ref.observe(.childAdded) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
             print("\(value)값이 등록되었습니다.")
-            self.history.append(value)
+            self.history.insert(value, at: 0)
             self.tableView.reloadData()
         }
+        
         ref.observe(.childRemoved) { (DataSnapshot) in
             guard let value = DataSnapshot.value as? String else {return}
             print("item deleteed")
             print("\(value)값이 삭제되었습니다.")
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
         }
     }
    
@@ -60,6 +59,7 @@ class ViewController: UIViewController {
                 let receivedTodo = try JSONSerialization.jsonObject(with: data, options: [])
                 let receiveData = receivedTodo as! NSArray
                 self.searchArr = receiveData[1] as! [String]
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -77,15 +77,16 @@ class ViewController: UIViewController {
 //MARK: - HistoryDBdeleteDelegate
 
 extension ViewController: HistoryDBdeleteDelegate {
-    func historyDBDelete(string: String){
+    func historyDBDelete(string: String, index:Int){
         ref.child(string).removeValue { (error, ref) in
             if error != nil{
                 print("error \(String(describing: error))")
             }
         }
-//        self.tableView.reloadData()
+        
+        history.remove(at: index)
+        self.tableView.reloadData()
     }
-    
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -105,7 +106,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         
+
     }
+    
+    
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -123,8 +127,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: DatabaseCustomCell.reusableIdentifier, for: indexPath) as! DatabaseCustomCell
             cell.delegate = self
             cell.historyLabel.text = history[indexPath.row]
+
+            cell.indexPath = indexPath.row
+            
+            
+            
+
+            
             return cell
         }
+
     }
 }
 
@@ -155,3 +167,4 @@ extension ViewController: UISearchBarDelegate {
 }
 
 }
+
