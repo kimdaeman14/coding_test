@@ -1,6 +1,10 @@
 
 ## git log 
 
+ 이 앱은 Wikipedia API를 Search Bar를 통해 검색합니다. 글자를 입력할때마다 Wiki API에 있는 단어가 검색되어 반응형으로 출력됩니다. 검색어가 없게되면 Firebase Realtime Database에 저장되어있는 최근검색어 리스트가 출력되며, Enter키 또는 x버튼을 눌러서 실시간으로 데이터베이스에 있는 최근검색어 데이터를 추가 또는 삭제할 수 있습니다. 
+ 
+ 
+
 ```
 commit 5b2cfed8e630ce445cace32bca43a7bdef3f0d5d
 프로젝트 생성
